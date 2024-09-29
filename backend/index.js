@@ -16,7 +16,10 @@ app.get("/", (req, res) => {
 });
 
 // Middlewares
-app.use(cors());
+// Enable CORS for all routes
+app.use(cors({
+  origin: 'https://mern-practice-task-manager-ui.vercel.app' // Allow only your frontend origin
+}));
 app.use(bodyParser.json());
 app.use("/tasks", TaskRouter);
 
